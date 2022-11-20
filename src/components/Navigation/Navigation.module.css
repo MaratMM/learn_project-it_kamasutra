@@ -1,0 +1,7 @@
+.navigation {
+    width: 100%;
+    background-color: rgb(25, 177, 25);
+    grid-area: Navigation;
+    display: flex;
+    flex-direction: column;
+}

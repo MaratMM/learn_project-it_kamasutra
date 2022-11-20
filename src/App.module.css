@@ -1,0 +1,11 @@
+.app {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: "Header Header Header"
+        "Navigation Profile Profile"
+        "Navigation Profile Profile"
+}
+.main_content {
+    grid-area: Profile;
+    background-color: rgb(207, 107, 165);
+}

@@ -1,0 +1,8 @@
+.messages {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
