@@ -3,15 +3,15 @@ import {  Outlet } from "react-router-dom";
 import { HeaderAll } from './components/Header/Header';
 import { Navigation } from './components/Navigation/Navigation';
 
-
-export default function App() {
+export default function App(props) {
   return (
     <div className={style.app}>
       <HeaderAll />
-      <Navigation />
+      <Navigation NavigationLinkData={props.NavigationLinkData} />
       <div className={style.main_content}>
         <Outlet />
       </div>
     </div>
   );
 }
+
