@@ -10,7 +10,8 @@ export let MyPosts = (props) => {
         )
     })
     let postText = React.createRef();
-    let addPost = ()=> {
+    let addPost = (evt)=> {
+        evt.preventDefault();
         props.addNewPost(postText.current.value);
     }
     return (
