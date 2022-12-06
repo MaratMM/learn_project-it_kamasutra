@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import ErrorPage from "./error-page";
 import reportWebVitals from './reportWebVitals';
-import { addNewPost } from './redux/state';
+import { addMessageText, addNewPost } from './redux/state';
 
 import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements, } from "react-router-dom";
 import { Profile } from './components/Profile/Profile';
@@ -20,8 +20,8 @@ export let rerenderEntireTree = (state) => {
                     createRoutesFromElements(
                         <Route path='/*' element={<App NavigationLinkData={state.NavigationLinkData} />} errorElement={<ErrorPage />}>
                             <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={addNewPost} />}></Route>
-                            <Route path='messages/*' element={<Messages contactData={state.contactData} />}>
-                                <Route path='Katerina' element={<Dialog textMessageData={state.textMessageData} />}></Route>
+                            <Route path='messages/' element={<Messages contactData={state.contactData} addMessageText={addMessageText} />}>
+                                <Route path='*' element={<Dialog textMessageData={state.textMessageData} />}></Route>
                             </Route>
                         </Route>
                     )

@@ -13,7 +13,9 @@ export let Messages = (props) => {
 
     let textareaMessage = React.createRef()
     let addNewMessage = () => {
-        alert(textareaMessage.current.value)
+        props.addMessageText(textareaMessage.current.value)
+        // alert(textareaMessage.current.value)
+        textareaMessage.current.value = ''
     }
 
     return (

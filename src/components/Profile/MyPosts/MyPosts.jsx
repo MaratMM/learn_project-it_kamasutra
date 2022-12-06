@@ -13,6 +13,7 @@ export let MyPosts = (props) => {
     let addPost = (evt)=> {
         evt.preventDefault();
         props.addNewPost(postText.current.value);
+        postText.current.value = ''
     }
     return (
         <form className={style.my_posts}>

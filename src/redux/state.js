@@ -32,5 +32,10 @@ export let addNewPost = (myText)=> {
     state.postsData.push(newPostsItem);
     rerenderEntireTree(state);
 }
+export let addMessageText = (sendingText) => {
+    let newMessageItem = { textMessage: sendingText }
+    state.textMessageData.push(newMessageItem)
+    rerenderEntireTree(state)
+}
 
 export default state;
