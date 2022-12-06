@@ -1,5 +1,5 @@
 import style from './Header.module.css'
-import Logo from './Logo.png'
+import Logo from './logo.svg'
 
 export function HeaderAll () {
     return (
