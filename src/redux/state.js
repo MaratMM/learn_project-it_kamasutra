@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+import {rerenderEntireTree} from '../index.js'
 
 let state = {
     NavigationLinkData: [

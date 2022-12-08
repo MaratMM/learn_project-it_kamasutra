@@ -15,9 +15,11 @@ export let MyPosts = (props) => {
         props.addNewPost(postText.current.value);
         postText.current.value = ''
     }
+    let onChangePost = ()=> {}
+
     return (
         <form className={style.my_posts}>
-            <textarea ref={ postText} name="" id="" cols="30" rows="10"></textarea>
+            <textarea ref={ postText} onChange={onChangePost} name="" id="" cols="30" rows="10"></textarea>
             <button onClick={addPost} className={style.add_post}>add my post</button>
             <div className={style.added_post}>
                 {Posts}
