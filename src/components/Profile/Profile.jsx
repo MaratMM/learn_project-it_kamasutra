@@ -6,7 +6,7 @@ export let Profile = (props)=> {
         <div className={style.profile}>
             <img src="#" alt="profile-avatar" />
             <div className={style.description}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe commodi magnam similique dolore voluptatem quibusdam soluta incidunt quae? Rem consequuntur ad cupiditate. Nemo, dicta id. Modi, id eaque? Expedita, alias!</div>
-            <MyPosts postsData={props.postsData} addNewPost ={props.addNewPost} />
+            <MyPosts postsData={props.postsData} addNewPost ={props.addNewPost} inputPostText={props.inputPostText} changeInputPostText={props.changeInputPostText} />
         </div>
     )
 }

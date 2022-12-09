@@ -13,12 +13,14 @@ let state = {
         { textMessage: 'Hi, my name is marat', likesCounter: '50' },
         { textMessage: 'how are you', likesCounter: '3' },
     ],
+    inputPostText: '',
     contactData : [
         { nameLink: 'Katerina', link: '/messages/Katerina' },
         { nameLink: 'Mihail', link: '/messages/Mihail' },
         { nameLink: 'Kolya', link: '/messages/Kolya' },
         { nameLink: 'Natasha', link: '/messages/Natasha' },
     ],
+    inputMessageText: '',
     textMessageData : [
         { textMessage: 'hi its message in the dialogs' },
         { textMessage: 'blablabla' },
@@ -35,6 +37,14 @@ export let addNewPost = (myText)=> {
 export let addMessageText = (sendingText) => {
     let newMessageItem = { textMessage: sendingText }
     state.textMessageData.push(newMessageItem)
+    rerenderEntireTree(state)
+}
+export let changeInputPostText = (text) => {
+    state.inputPostText = text;
+    rerenderEntireTree(state)
+}
+export let changeInputMessageText = (text) => {
+    state.inputMessageText = text
     rerenderEntireTree(state)
 }
 
