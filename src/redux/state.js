@@ -1,5 +1,3 @@
-import {rerenderEntireTree} from '../index.js'
-
 let state = {
     NavigationLinkData: [
         { nameLink: 'Profile', link: '/profile' },
@@ -47,5 +45,8 @@ export let changeInputMessageText = (text) => {
     state.inputMessageText = text
     rerenderEntireTree(state)
 }
-
+let rerenderEntireTree = () => {/*функция заглушка*/}
+export let subscriber = (observer) => {
+    rerenderEntireTree = observer;
+}
 export default state;
