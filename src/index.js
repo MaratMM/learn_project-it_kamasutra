@@ -1,5 +1,7 @@
-import state, { changeInputMessageText, changeInputPostText, subscriber } from "./redux/state";
-import { addMessageText, addNewPost } from './redux/state';
+// import state, { changeInputMessageText, changeInputPostText, subscriber } from "./redux/state";
+import store from "./redux/state";
+// import { addMessageText, addNewPost } from './redux/state';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -18,9 +20,9 @@ let rerenderEntireTree = (state) => {
                 createBrowserRouter(
                     createRoutesFromElements(
                         <Route path='/*' element={<App NavigationLinkData={state.NavigationLinkData} />} errorElement={<ErrorPage />}>
-                            <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={addNewPost} inputPostText={state.inputPostText} changeInputPostText={changeInputPostText} />}></Route>
-                            <Route path='messages/' element={<Messages contactData={state.contactData} addMessageText={addMessageText} inputMessageText={state.inputMessageText} changeInputMessageText={changeInputMessageText} />}>
-                                <Route path='*' element={<Dialog textMessageData={state.textMessageData} />}></Route>
+                            <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={store.addNewPost.bind(store)} inputPostText={state.inputPostText} changeInputPostText={store.changeInputPostText.bind(store)} />}></Route>
+                            <Route path='messages/' element={<Messages contactData={state.contactData}    />}>
+                                <Route path='*' element={<Dialog textMessageData={state.textMessageData} inputMessageText={state.inputMessageText} addMessageText={store.addMessageText.bind(store)} changeInputMessageText={store.changeInputMessageText.bind(store)} />}></Route>
                             </Route>
                         </Route>
                     )
@@ -29,8 +31,8 @@ let rerenderEntireTree = (state) => {
         </React.StrictMode>
     );
 }
-rerenderEntireTree(state);
-subscriber(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.subscriber(rerenderEntireTree);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
