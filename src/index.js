@@ -20,7 +20,8 @@ let rerenderEntireTree = (state) => {
                 createBrowserRouter(
                     createRoutesFromElements(
                         <Route path='/*' element={<App NavigationLinkData={state.NavigationLinkData} />} errorElement={<ErrorPage />}>
-                            <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={store.addNewPost.bind(store)} inputPostText={state.inputPostText} changeInputPostText={store.changeInputPostText.bind(store)} />}></Route>
+                            {/* <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={store.addNewPost.bind(store)} changeInputPostText={store.changeInputPostText.bind(store)} inputPostText={state.inputPostText}  />}></Route> */}
+                            <Route path='profile' element={<Profile postsData={state.postsData} dispatch={store.dispatch.bind(store)} inputPostText={state.inputPostText}  />}></Route>
                             <Route path='messages/' element={<Messages contactData={state.contactData}    />}>
                                 <Route path='*' element={<Dialog textMessageData={state.textMessageData} inputMessageText={state.inputMessageText} addMessageText={store.addMessageText.bind(store)} changeInputMessageText={store.changeInputMessageText.bind(store)} />}></Route>
                             </Route>

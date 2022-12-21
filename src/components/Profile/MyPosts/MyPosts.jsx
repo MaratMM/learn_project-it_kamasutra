@@ -12,12 +12,14 @@ export let MyPosts = (props) => {
     let postText = React.createRef();
     let addPost = (evt)=> {
         evt.preventDefault();
-        props.addNewPost(postText.current.value);
-        props.changeInputPostText('')
+        // props.addNewPost(postText.current.value);
+        props.dispatch({type: 'ADD-NEW-POST', myText: postText.current.value});
+        // props.changeInputPostText('')
+        props.dispatch({type: 'CHANGE-INPUT-POST-TEXT', text: ''})
     }
     let onChangePost = ()=> {
         let text = postText.current.value;
-        props.changeInputPostText(text)
+        props.dispatch({type: 'CHANGE-INPUT-POST-TEXT', text: text})
     }
 
     return (
