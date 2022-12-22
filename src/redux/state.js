@@ -1,3 +1,7 @@
+const ADD_NEW_POST = 'ADD-NEW-POST'
+const CHANGE_INPUT_POST_TEXT = 'CHANGE-INPUT-POST-TEXT'
+
+
 let store = {
     _state: {
         NavigationLinkData: [
@@ -68,6 +72,17 @@ let store = {
             this._state.inputPostText = action.text;
             this._callSubscriber(this._state);
         }
+    }
+}
+
+export const addNewPostActionCreator = (text) => {
+    return {
+        type: ADD_NEW_POST, myText: text
+    }
+}
+export const changeInputPostTextActionCreator = (text) => {
+    return {
+        type: CHANGE_INPUT_POST_TEXT, text: text
     }
 }
 
