@@ -11,7 +11,7 @@ export let Messages = (props) => {
         )
     })
 
-    
+
 
     return (
         <div className={style.messages}>
@@ -21,7 +21,6 @@ export let Messages = (props) => {
             <div className={style.dialog}>
                 <p>
                     <Outlet />
-                    
                 </p>
             </div>
         </div>
