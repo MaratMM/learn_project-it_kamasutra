@@ -1,10 +1,19 @@
 import style from './Navigation.module.css'
 import { NavigationLink } from './NavigationLink/NavigationLink'
 
+let navLinkData = {
+    NavigationLinkData: [
+        { nameLink: 'Profile', link: '/profile' },
+        { nameLink: 'Messages', link: '/messages' },
+        { nameLink: 'News', link: '/news' },
+        { nameLink: 'Music', link: '/music' },
+        { nameLink: 'Setings', link: '/setings' },
+    ]
+}
 
 export const Navigation = (props) => {
 
-    let NavigationLinkItems = props.NavigationLinkData.map((item) => {
+    let NavigationLinkItems = navLinkData.NavigationLinkData.map((item) => {
         return (
             <NavigationLink nameLink={item.nameLink} link={item.link} />
         )

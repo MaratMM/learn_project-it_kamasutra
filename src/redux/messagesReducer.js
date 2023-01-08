@@ -1,7 +1,21 @@
 const CHANGE_INPUT_MESSAGE_TEXT = 'CHANGE-INPUT-MESSAGE-TEXT'
 const ADD_MESSAGE_TEXT = 'ADD-MESSAGE-TEXT'
-
-const messagesReducer = (state, action) => {
+let initialState = {
+    contactData: [
+        { nameLink: 'Katerina', link: '/messages/Katerina' },
+        { nameLink: 'Mihail', link: '/messages/Mihail' },
+        { nameLink: 'Kolya', link: '/messages/Kolya' },
+        { nameLink: 'Natasha', link: '/messages/Natasha' },
+    ],
+    inputMessageText: '',
+    textMessageData: [
+        { textMessage: 'hi its message in the dialogs' },
+        { textMessage: 'blablabla' },
+        { textMessage: 'testing my code in the react' },
+        { textMessage: 'make next project' },
+    ],
+}
+const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_INPUT_MESSAGE_TEXT:
             state.inputMessageText = action.text
@@ -24,8 +38,8 @@ const messagesReducer = (state, action) => {
 
     // return state
 }
-export default messagesReducer;
-export const addMessageTextActionCreator = (sendingText) => { 
+
+export const addMessageTextActionCreator = (sendingText) => {
     return {
         type: ADD_MESSAGE_TEXT, sendingText: sendingText
     }
@@ -34,4 +48,5 @@ export const changeInputMessageTextActionCreator = (text) => {
     return {
         type: CHANGE_INPUT_MESSAGE_TEXT, text: text
     }
- }
+}
+export default messagesReducer;

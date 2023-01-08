@@ -7,7 +7,7 @@ export default function App(props) {
   return (
     <div className={style.app}>
       <HeaderAll />
-      <Navigation NavigationLinkData={props.NavigationLinkData} />
+      <Navigation />
       <div className={style.main_content}>
         <Outlet />
       </div>

@@ -57,7 +57,7 @@ let store = {
     //     this._callSubscriber(this._state);
     // },
     _callSubscriber() {/*функция/метод заглушка*/ },
-    subscriber(observer) {
+    subscribe(observer) {
         this._callSubscriber = observer;
     },
     dispatch(action) {

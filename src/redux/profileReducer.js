@@ -1,15 +1,21 @@
 const ADD_NEW_POST = 'ADD-NEW-POST'
 const CHANGE_INPUT_POST_TEXT = 'CHANGE-INPUT-POST-TEXT'
-
-const profileReducer = (state, action) => {
-
+let initialState = {
+    postsData: [
+        { textMessage: 'hellow world', likesCounter: '2' },
+        { textMessage: 'Hi, my name is marat', likesCounter: '50' },
+        { textMessage: 'how are you', likesCounter: '3' },
+    ],
+    inputPostText: '',
+}
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CHANGE_INPUT_POST_TEXT:
+            state.inputPostText = action.text;
+            return state
         case ADD_NEW_POST:
             let newPostsItem = { textMessage: action.myText, likesCounter: '0' }
             state.postsData.push(newPostsItem);
-            return state
-        case CHANGE_INPUT_POST_TEXT:
-            state.inputPostText = action.text;
             return state
         default:
             return state
@@ -25,8 +31,6 @@ const profileReducer = (state, action) => {
 
     // return state
 }
-
-export default profileReducer
 export const addNewPostActionCreator = (text) => {
     return {
         type: ADD_NEW_POST, myText: text
@@ -37,3 +41,4 @@ export const changeInputPostTextActionCreator = (text) => {
         type: CHANGE_INPUT_POST_TEXT, text: text
     }
 }
+export default profileReducer
