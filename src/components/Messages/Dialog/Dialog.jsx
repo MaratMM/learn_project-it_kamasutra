@@ -1,6 +1,6 @@
 import style from "./Dialog.module.css"
 import React from "react"
-import { addMessageTextActionCreator, changeInputMessageTextActionCreator } from "../../../redux/state"
+import { addMessageTextActionCreator, changeInputMessageTextActionCreator } from "../../../redux/messagesReducer"
 
 
 export let Dialog = (props) => {

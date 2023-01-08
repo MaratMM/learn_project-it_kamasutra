@@ -1,7 +1,7 @@
 import style from './MyPosts.module.css'
 import { Post } from './Post/Post'
 import React from 'react'
-import {addNewPostActionCreator, changeInputPostTextActionCreator} from '../../../redux/state' 
+import {addNewPostActionCreator, changeInputPostTextActionCreator} from '../../../redux/profileReducer' 
 
 let postText = React.createRef();
 

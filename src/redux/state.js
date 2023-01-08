@@ -1,8 +1,5 @@
-const ADD_NEW_POST = 'ADD-NEW-POST'
-const CHANGE_INPUT_POST_TEXT = 'CHANGE-INPUT-POST-TEXT'
-
-const CHANGE_INPUT_MESSAGE_TEXT = 'CHANGE-INPUT-MESSAGE-TEXT'
-const ADD_MESSAGE_TEXT = 'ADD-MESSAGE-TEXT'
+import messagesReducer from "./messagesReducer"
+import profileReducer from "./profileReducer"
 
 let store = {
     _state: {
@@ -64,48 +61,31 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === 'ADD-NEW-POST') {
-            let newPostsItem = { textMessage: action.myText, likesCounter: '0' }
-            this._state.profilePage.postsData.push(newPostsItem);
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'CHANGE-INPUT-POST-TEXT') {
-            this._state.profilePage.inputPostText = action.text;
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'CHANGE-INPUT-MESSAGE-TEXT') {
-            this._state.messagePage.inputMessageText = action.text
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'ADD-MESSAGE-TEXT') {
-            let newMessageItem = { textMessage: action.sendingText }
-            this._state.messagePage.textMessageData.push(newMessageItem)
-            this._callSubscriber(this._state);
-        }
-    }
-}
 
-export const addNewPostActionCreator = (text) => {
-    return {
-        type: ADD_NEW_POST, myText: text
-    }
-}
-export const changeInputPostTextActionCreator = (text) => {
-    return {
-        type: CHANGE_INPUT_POST_TEXT, text: text
-    }
-}
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.messagePage = messagesReducer(this._state.messagePage, action)
+        this._callSubscriber(this._state);
 
-export const addMessageTextActionCreator = (sendingText) => { 
-    return {
-        type: ADD_MESSAGE_TEXT, sendingText: sendingText
+        // if (action.type === 'ADD-NEW-POST') {
+        //     let newPostsItem = { textMessage: action.myText, likesCounter: '0' }
+        //     this._state.profilePage.postsData.push(newPostsItem);
+        //     this._callSubscriber(this._state);
+        // }
+        // else if (action.type === 'CHANGE-INPUT-POST-TEXT') {
+        //     this._state.profilePage.inputPostText = action.text;
+        //     this._callSubscriber(this._state);
+        // }
+        // else if (action.type === 'CHANGE-INPUT-MESSAGE-TEXT') {
+        //     this._state.messagePage.inputMessageText = action.text
+        //     this._callSubscriber(this._state);
+        // }
+        // else if (action.type === 'ADD-MESSAGE-TEXT') {
+        //     let newMessageItem = { textMessage: action.sendingText }
+        //     this._state.messagePage.textMessageData.push(newMessageItem)
+        //     this._callSubscriber(this._state);
+        // }
     }
 }
-export const changeInputMessageTextActionCreator = (text) => {
-    return {
-        type: CHANGE_INPUT_MESSAGE_TEXT, text: text
-    }
- }
 
 export default store;
 window.store = store;
