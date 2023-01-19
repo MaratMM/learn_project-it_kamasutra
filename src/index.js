@@ -10,7 +10,7 @@ import ErrorPage from "./error-page";
 import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements, } from "react-router-dom";
 import { Profile } from './components/Profile/Profile';
 import { Messages } from './components/Messages/Messages'
-import { Dialog } from './components/Messages/Dialog/Dialog';
+import { DialogContainer } from './components/Messages/Dialog/DialogContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
@@ -27,7 +27,9 @@ let rerenderEntireTree = (state) => {
 
                             <Route path='messages/' element={<Messages contactData={state.messagePage.contactData}    />}>
                                 {/* <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} addMessageText={store.addMessageText.bind(store)} changeInputMessageText={store.changeInputMessageText.bind(store)} />}></Route> */}
-                                <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} dispatch={store.dispatch.bind(store)} />}></Route>
+                                {/* <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} dispatch={store.dispatch.bind(store)} />}></Route> */}
+
+                                <Route path='*' element={<DialogContainer store={store} />}></Route>
                             </Route>
                         </Route>
                     )

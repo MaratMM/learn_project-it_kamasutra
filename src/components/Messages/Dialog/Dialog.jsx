@@ -1,6 +1,5 @@
 import style from "./Dialog.module.css"
 import React from "react"
-import { addMessageTextActionCreator, changeInputMessageTextActionCreator } from "../../../redux/messagesReducer"
 
 
 export let Dialog = (props) => {
@@ -15,13 +14,14 @@ export let Dialog = (props) => {
     let addNewMessage = () => {
         // props.addMessageText(textareaMessage.current.value)
         // props.changeInputMessageText('')
-        props.dispatch(addMessageTextActionCreator(textareaMessage.current.value))
-        props.dispatch(changeInputMessageTextActionCreator(''))
+        props.onAddNewMessage(textareaMessage.current.value)
+        textareaMessage.current.value = ''
     }
     let inputOnChange = () => {
-        let text = textareaMessage.current.value
+        // let text = textareaMessage.current.value
         // props.changeInputMessageText(text)
-        props.dispatch(changeInputMessageTextActionCreator(text))
+        // props.dispatch(changeInputMessageTextActionCreator(textareaMessage.current.value))
+        props.onInputOnChange(textareaMessage.current.value)
     }
 
     return (
