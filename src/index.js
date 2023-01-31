@@ -10,6 +10,7 @@ import { Profile } from './components/Profile/Profile';
 import { Messages } from './components/Messages/Messages'
 import { DialogContainer } from './components/Messages/Dialog/DialogContainer';
 import { Provider } from "react-redux";
+import { Users } from "./components/Users/Users";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
@@ -23,14 +24,15 @@ let rerenderEntireTree = (state) => {
                                 {/* <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={store.addNewPost.bind(store)} changeInputPostText={store.changeInputPostText.bind(store)} inputPostText={state.inputPostText}  />}></Route> */}
                                 {/* <Route path='profile' element={<Profile postsData={state.profilePage.postsData} dispatch={store.dispatch.bind(store)} inputPostText={state.profilePage.inputPostText}  />}></Route> */}
 
-                                <Route path='profile' element={<Profile store={store} />}></Route>
+                                <Route path='profile' element={<Profile  />}></Route>
 
                                 <Route path='messages/' element={<Messages contactData={state.messagePage.contactData} />}>
                                     {/* <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} addMessageText={store.addMessageText.bind(store)} changeInputMessageText={store.changeInputMessageText.bind(store)} />}></Route> */}
                                     {/* <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} dispatch={store.dispatch.bind(store)} />}></Route> */}
 
-                                    <Route path='*' element={<DialogContainer store={store} />}></Route>
+                                    <Route path='*' element={<DialogContainer />}></Route>
                                 </Route>
+                                <Route path="users/" element={<Users />}></Route>
                             </Route>
                         )
                     )
