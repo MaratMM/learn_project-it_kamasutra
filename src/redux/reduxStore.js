@@ -1,9 +1,11 @@
 import { combineReducers, legacy_createStore as createStore } from 'redux'
 import messagesReducer from './messagesReducer'
 import profileReducer from './profileReducer'
+import usersReducer from './usersReducer'
 let reducers = combineReducers({
     profilePage: profileReducer,
-    messagePage: messagesReducer
+    messagePage: messagesReducer,
+    usersPage: usersReducer
 })
 let store = createStore(reducers)
 

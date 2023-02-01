@@ -11,6 +11,7 @@ import { Messages } from './components/Messages/Messages'
 import { DialogContainer } from './components/Messages/Dialog/DialogContainer';
 import { Provider } from "react-redux";
 import { Users } from "./components/Users/Users";
+import { UsersContainer } from "./components/Users/UsersContainer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
@@ -32,7 +33,7 @@ let rerenderEntireTree = (state) => {
 
                                     <Route path='*' element={<DialogContainer />}></Route>
                                 </Route>
-                                <Route path="users/" element={<Users />}></Route>
+                                <Route path="users/" element={<UsersContainer />}></Route>
                             </Route>
                         )
                     )
