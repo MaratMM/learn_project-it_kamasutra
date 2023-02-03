@@ -1,7 +1,7 @@
 import style from './Users.module.css'
-export let Users = (props) => {
 
-    if (props.users.lenght === 0) {
+export let Users = (props) => {
+    if (props.users.length === 0) {
         props.setUsers(
             [
                 { id: 1, followed: false, fullName: 'Alexander', statusProfile: 'im main mutherfucker', location: { city: 'kazan', country: 'russia' } },
@@ -10,7 +10,6 @@ export let Users = (props) => {
             ]
         )
     }
-
     let UsersData = props.users.map((elem) => {
         return (
             <div key={elem.id}>

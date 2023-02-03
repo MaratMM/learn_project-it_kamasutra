@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
     root.render(
         <Provider store={store}>
-            <React.StrictMode>
+            {/* <React.StrictMode> */}
                 <RouterProvider router={
                     createBrowserRouter(
                         createRoutesFromElements(
@@ -38,7 +38,7 @@ let rerenderEntireTree = (state) => {
                         )
                     )
                 } />
-            </React.StrictMode>
+            {/* </React.StrictMode> */}
         </Provider>
     );
 }
