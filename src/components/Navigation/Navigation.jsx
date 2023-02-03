@@ -8,6 +8,7 @@ let navLinkData = {
         { nameLink: 'News', link: '/news' },
         { nameLink: 'Music', link: '/music' },
         { nameLink: 'Setings', link: '/setings' },
+        { nameLink: 'Users', link: '/users' },
     ]
 }
 
