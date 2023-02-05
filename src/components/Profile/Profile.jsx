@@ -1,7 +1,5 @@
 import style from './Profile.module.css'
 import { MyPostsContainer } from './MyPosts/MyPostsContainer'
-import { Provider } from 'react-redux'
-import store from "../../redux/reduxStore";
 
 export let Profile = (props) => {
     return (

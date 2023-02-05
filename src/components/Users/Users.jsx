@@ -1,14 +1,18 @@
+import axios from 'axios'
 import style from './Users.module.css'
 
 export let Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers(
-            [
-                { id: 1, followed: false, fullName: 'Alexander', statusProfile: 'im main mutherfucker', location: { city: 'kazan', country: 'russia' } },
-                { id: 2, followed: true, fullName: 'Dimon', statusProfile: 'im main sucker', location: { city: 'moscow', country: 'russia' } },
-                { id: 3, followed: false, fullName: 'Evgeny', statusProfile: 'im main dumb', location: { city: 'nizhnekamsk', country: 'russia' } },
-            ]
-        )
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(prostoFunction =>{
+            props.setUsers(prostoFunction.data.items)
+        })
+        // props.setUsers(
+        //     [
+        //         { id: 1, followed: false, fullName: 'Alexander', statusProfile: 'im main mutherfucker', location: { city: 'kazan', country: 'russia' } },
+        //         { id: 2, followed: true, fullName: 'Dimon', statusProfile: 'im main sucker', location: { city: 'moscow', country: 'russia' } },
+        //         { id: 3, followed: false, fullName: 'Evgeny', statusProfile: 'im main dumb', location: { city: 'nizhnekamsk', country: 'russia' } },
+        //     ]
+        // )
     }
     let UsersData = props.users.map((elem) => {
         return (
@@ -19,14 +23,14 @@ export let Users = (props) => {
                 </div>
                 <div>
                     <div>
-                        <span>{elem.fullName}</span>
-                        <span>{elem.statusProfile}</span>
+                        <span>{elem.name}</span>
+                        <span>{elem.status}</span>
                     </div>
                     <div>
-                        <span>{elem.location.city}</span>
+                        <span>{"elem.location.city"}</span>
                         <span></span>
 
-                        {elem.location.country}
+                        {"elem.location.country"}
                     </div>
                 </div>
             </div>
