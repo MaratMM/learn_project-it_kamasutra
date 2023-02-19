@@ -21,7 +21,7 @@ export let Users = (props)=> {
                         return (
                             <div key={elem.id}>
                                 <div>
-                                    <img className={style.imgProfilePhoto} src="https://ulibky.ru/wp-content/uploads/2019/10/avatarki_dlya_vatsap_dlya_devushek_42_28061027.jpg" alt="profilePhoto" />
+                                    <img className={style.imgProfilePhoto} src={elem.photos.small !== null ? elem.photos.small  : "https://ulibky.ru/wp-content/uploads/2019/10/avatarki_dlya_vatsap_dlya_devushek_42_28061027.jpg"} alt="profilePhoto" />
                                     {elem.followed ? <button onClick={() => { props.unfollow(elem.id) }}>unFollow</button> : <button onClick={() => { props.follow(elem.id) }}>Follow</button>}
                                 </div>
                                 <div>
