@@ -10,11 +10,13 @@ export let Users = (props)=> {
         <div>
                 <h1>Hellow users</h1>
                 <div>
-                    {pages.map((elem)=> {
+                    {
+                    pages.map((elem)=> {
                         return (
                             <span onClick={(e)=> {props.onPageChanged(elem)}} className={`${props.currentPage === elem && style.currentPage} ${style.pageNumber}`}>{elem}</span>  
                         )
-                    })}
+                    })
+                    }
                 </div>
                 {
                     props.users.map((elem) => {
