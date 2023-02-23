@@ -11,6 +11,7 @@ import { Messages } from './components/Messages/Messages'
 import { DialogContainer } from './components/Messages/Dialog/DialogContainer';
 import { Provider } from "react-redux";
 import { UsersContainer } from "./components/Users/UsersContainer";
+import { ProfileContainer } from "./components/Profile/ProfileContainer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
@@ -24,7 +25,7 @@ let rerenderEntireTree = (state) => {
                                 {/* <Route path='profile' element={<Profile postsData={state.postsData} addNewPost={store.addNewPost.bind(store)} changeInputPostText={store.changeInputPostText.bind(store)} inputPostText={state.inputPostText}  />}></Route> */}
                                 {/* <Route path='profile' element={<Profile postsData={state.profilePage.postsData} dispatch={store.dispatch.bind(store)} inputPostText={state.profilePage.inputPostText}  />}></Route> */}
 
-                                <Route path='profile' element={<Profile  />}></Route>
+                                <Route path='profile' element={<ProfileContainer  />}></Route>
 
                                 <Route path='messages/' element={<Messages contactData={state.messagePage.contactData} />}>
                                     {/* <Route path='*' element={<Dialog textMessageData={state.messagePage.textMessageData} inputMessageText={state.messagePage.inputMessageText} addMessageText={store.addMessageText.bind(store)} changeInputMessageText={store.changeInputMessageText.bind(store)} />}></Route> */}
