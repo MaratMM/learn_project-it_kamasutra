@@ -3,7 +3,7 @@ import { NavigationLink } from './NavigationLink/NavigationLink'
 
 let navLinkData = {
     NavigationLinkData: [
-        { nameLink: 'Profile', link: '/profile' },
+        { nameLink: 'myProfile', link: '/profile/me' },
         { nameLink: 'Messages', link: '/messages' },
         { nameLink: 'News', link: '/news' },
         { nameLink: 'Music', link: '/music' },

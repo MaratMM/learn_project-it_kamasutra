@@ -1,0 +1,42 @@
+Опциональные параметры больше не поддерживаются в react-router-v6, поэтому в документации советуют делать так (погуглите useParams v6.6.1) :
+App.js:
+<Route path="/profile/">
+   <Route path=":userId"  element={<ProfileContainer/>} />
+   <Route path="me"        element={<ProfileContainer/> }/>
+</Route>
+Здесь я сделал отдельный Route по клику на кнопку профайл и захардкодил свой юзер айди (поскольку здесь никакие параметры не передаются), но суть понятна.
+
+В нашем контейнере нам не нужно создавать дополнительную компоненту с помощью withRouter (он больше не поддерживается), но нам нужно импортировать функцию useParams из react-router-dom.
+Чтобы всё работало, переделываем классовую компоненту ProfileAPIComponent в функциональную, вместо componentDidMount() пишем:
+
+
+import {useParams} from 'react-router-dom'
+import { useEffect } from 'react';
+
+
+const ProfileAPIComponent = (props) => {
+
+  const params = useParams()
+
+  // на случай, если айдишник не пришёл
+  if (!params.userId) {
+    params.userId = вашАйди
+  }
+
+  useEffect(() => {
+   axios.get(`com/api/1.0/profile/${params.userId}`)
+   .then(response=> {props.setProfile(response.data)});
+   })
+
+  return (
+    <Profile profile= {props.profile} />
+  );
+}
+
+Ну а connect от react-redux оставляем, как и было, ничего не трогаем.
+const ProfileContainer = connect(mapStateToProps, {
+    setProfile
+}) (ProfileAPIComponent)
+
+Ленился начинать этот урок, т.к. думал, что сложно и долго разбираться с переделыванием устаревшего withRouter, но всё оказалось изи.
+Фигачим, всех с Новым годом!
