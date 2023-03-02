@@ -20,7 +20,8 @@ export function HeaderAPIContainer (props) {
 
 let mapStateToProps = (state)=> {
     return {
-        data: state.auth.data,
+        isAuth: state.auth.isAuth,
+        login: state.auth.login
     }
 }
 
